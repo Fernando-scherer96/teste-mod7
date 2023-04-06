@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formulário com validação de campos numéricos</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+	<h1>Formulário com validação de campos numéricos</h1>
+	<form id="formulario">
+		<label for="campoA">Campo A:</label>
+		<input type="number" id="campoA" name="campoA"><br><br>
+		<label for="campoB">Campo B:</label>
+		<input type="number" id="campoB" name="campoB"><br><br>
+		<button type="submit">Enviar</button>
+	</form>
+	<div id="mensagem"></div>
+	<script>
+		const form = document.getElementById('formulario');
+		const campoA = document.getElementById('campoA');
+		const campoB = document.getElementById('campoB');
+		const mensagem = document.getElementById('mensagem');
+
+		form.addEventListener('submit', function(event) {
+			event.preventDefault();
+			if (parseInt(campoB.value) > parseInt(campoA.value)) {
+				mensagem.innerHTML = 'Formulário válido!';
+				mensagem.style.color = 'green';
+			} else {
+				mensagem.innerHTML = 'Formulário inválido!';
+				mensagem.style.color = 'red';
+			}
+		});
+	</script>
+</body>
+</html>
